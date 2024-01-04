@@ -4,6 +4,36 @@
 
 @layer base {
   body {
-    @apply flex flex-col bg-zinc-100;
+    @apply flex flex-col bg-zinc-50;
+  }
+}
+
+@layer components {
+  .main {
+    @apply flex items-center justify-center pt-[10rem];
+  }
+
+  .page-name {
+    @apply text-[4rem] font-semibold;
+  }
+
+  .form-container {
+    @apply flex w-[60%] flex-col rounded bg-zinc-200 p-[2rem] shadow-xl;
+  }
+
+  .form-header {
+    @apply mb-[1rem] text-center text-[2.5rem] font-semibold;
+  }
+
+  .form {
+    @apply flex flex-col space-y-5;
+  }
+
+  .form-input {
+    @apply h-[2.5rem] rounded pl-2 text-[1.2rem];
+  }
+
+  .form-button {
+    @apply w-fit rounded bg-indigo-500 px-4 py-2 text-[1.4rem] font-medium text-gray-50 shadow;
   }
 }

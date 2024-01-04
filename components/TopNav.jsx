@@ -10,8 +10,10 @@ function TopNav() {
       </Link>
 
       <div className="ml-auto space-x-4 pr-5">
-        <Link href="/">Login</Link>
-        <Link href="/">Register</Link>
+        <Link href="/dashboard/admin">Admin</Link>
+        <Link href="/dashboard/user">User</Link>
+        <Link href="/login">Login</Link>
+        <Link href="/register">Register</Link>
       </div>
     </nav>
   );
