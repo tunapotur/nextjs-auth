@@ -10,7 +10,7 @@
 
 @layer components {
   .main {
-    @apply flex items-center justify-center pt-[10rem];
+    @apply flex items-center justify-center pt-[5rem];
   }
 
   .page-name {
