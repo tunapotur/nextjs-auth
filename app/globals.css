@@ -18,7 +18,7 @@
   }
 
   .form-container {
-    @apply flex w-[60%] flex-col rounded bg-zinc-200 p-[2rem] shadow-xl;
+    @apply flex w-[32rem] flex-col rounded bg-zinc-200 p-[2rem] shadow-xl;
   }
 
   .form-header {

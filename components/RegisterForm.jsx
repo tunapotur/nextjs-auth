@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 function Register() {
   const [name, setName] = useState("Ahmet Tuna POTUR");
@@ -35,6 +35,7 @@ function Register() {
 
       if (user) {
         setError("User already exists.");
+        setLoading(false);
         return;
       }
 
@@ -51,6 +52,12 @@ function Register() {
       });
 
       if (res.ok) {
+        await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        });
+
         setName("");
         setEmail("");
         setPassword("");
