@@ -108,11 +108,7 @@ function Register() {
               {loading ? "Please wait..." : "Sign Up"}
             </button>
 
-            {error && (
-              <div className="flex items-center rounded-md bg-red-500 px-4 text-sm text-white">
-                {error}
-              </div>
-            )}
+            {error && <div className="form-error">{error}</div>}
           </div>
         </form>
       </div>

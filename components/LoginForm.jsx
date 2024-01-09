@@ -8,13 +8,20 @@ function LoginForm() {
   const [email, setEmail] = useState("tunapotur@yahoo.com");
   const [password, setPassword] = useState("tunapotur41");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!email || !password) {
+      setError("All fields are necessary.");
+      return;
+    }
+
     try {
+      setLoading(true);
       const res = await signIn("credentials", {
         email,
         password,
@@ -23,6 +30,7 @@ function LoginForm() {
 
       if (res.error) {
         setError("Invalid Credentials");
+        setLoading(false);
         return;
       }
 
@@ -53,12 +61,16 @@ function LoginForm() {
             placeholder="Enter your password"
           />
 
-          <button
-            className="form-button"
-            disabled={loading || !email || !password}
-          >
-            {loading ? "Please wait..." : "Sign In"}
-          </button>
+          <div className="flex flex-row justify-between">
+            <button
+              className="form-button"
+              disabled={loading || !email || !password}
+            >
+              {loading ? "Please wait..." : "Sign In"}
+            </button>
+
+            {error && <div className="form-error">{error}</div>}
+          </div>
         </form>
       </div>
     </main>

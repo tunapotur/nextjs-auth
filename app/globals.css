@@ -36,4 +36,8 @@
   .form-button {
     @apply w-fit rounded bg-indigo-500 px-4 py-2 text-[1.4rem] font-medium text-gray-50 shadow;
   }
+
+  .form-error {
+    @apply flex items-center rounded-md bg-red-500 px-4 text-sm text-white;
+  }
 }

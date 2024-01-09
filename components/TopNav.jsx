@@ -18,7 +18,7 @@ function TopNav() {
             <p className="text-sm font-normal">
               {data?.user?.name} ({data?.user?.role})
             </p>
-            <button onClick={() => signOut({ callbackUrl: "/login" })}>
+            <button onClick={() => signOut({ callbackUrl: "/" })}>
               Logout
             </button>
           </div>

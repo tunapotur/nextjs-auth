@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { withAuth } from "next-auth/middleware";
-import { signIn } from "next-auth/react";
 
 export const config = {
   matcher: ["/dashboard/:path*"],
@@ -11,20 +10,12 @@ export default withAuth(
     const url = req.nextUrl.pathname;
     const userRole = req?.nextauth?.token?.user?.role;
 
-    console.log("Is admin: ", userRole === "admin" ? true : false);
-
     if (url?.includes("/admin") && userRole !== "admin") {
       return NextResponse.redirect(new URL("/restiricted", req.url));
     }
   },
   {
     callbacks: {
-      //   authorized: ({ token }) => {
-      //     if (!token) {
-      //       return false;
-      //     }
-      //   },
-      // },
       authorized: ({ token }) => token != null,
     },
     pages: {
@@ -46,5 +37,6 @@ export const config = { matcher: ["/dashboard"] };
 
  ** https://stackoverflow.com/questions/76463059/how-to-implement-next-auth-withauth-middleware-with-nextjs-app-server-side-fetch
 
- 
-*/
+ ** https://stackoverflow.com/questions/70754651/next-auth-v4-with-next-js-middleware?rq=2
+
+ */
